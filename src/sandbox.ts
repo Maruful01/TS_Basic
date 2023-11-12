@@ -46,11 +46,29 @@ example2 = (auth) => {
   return auth;
 }
 
+// classes
+class car {
+  // Access Modifiers
+  public color: string;
+  readonly wheels: number;
+  private key: number;
+  constructor(c: string, w: number, k: number) {
+    this.color = c;
+    this.wheels = w;
+    this.key = k;
+  }
+  format() {
+    return ` car is${this.color} and has ${this.wheels} wheels. Key: ${this.key}`;
+  }
+}
 
+const car1: car = new car("Black", 4, 123);
+const car2: car = new car("White", 4, 123);
 
+let cares: car[] = [];
+cares.push(car1);
+cares.push(car2);
 
-
-
-
-
-
+cares.forEach(e => {
+  console.log(e);
+});
