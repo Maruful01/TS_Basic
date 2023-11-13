@@ -46,8 +46,12 @@ example2 = (auth) => {
   return auth;
 }
 
+interface hsaFormet {
+  format(): string;
+}
+
 // classes
-class car {
+class car implements hsaFormet {
   // Access Modifiers
   public color: string;
   readonly wheels: number;
@@ -72,3 +76,24 @@ cares.push(car2);
 cares.forEach(e => {
   console.log(e);
 });
+
+// interfaces
+// interfaces are not used to generate an object
+interface exampleOfInterface {
+   id: number;
+   password: string;
+   email: string;
+   isLoggedin: boolean;
+   methodExample(a: string): void;
+}
+
+const interface1: exampleOfInterface = {
+  id: 1234,
+  password: "##004",
+  email: "example@gmail.com",
+  isLoggedin: true,
+  methodExample (text): void {
+    console.log("Something");
+  },
+}
+
