@@ -1,3 +1,4 @@
+import { hsaFormet } from "./interfaces/hasFormetter";
 // union types in front or arrey
 let mixed: (string | number | boolean)[] = [];
 //  union types for normal variables
@@ -45,11 +46,6 @@ example1 = (name) => {
 example2 = (auth) => {
   return auth;
 }
-
-interface hsaFormet {
-  format(): string;
-}
-
 // classes
 class car implements hsaFormet {
   // Access Modifiers
@@ -79,6 +75,7 @@ cares.forEach(e => {
 
 // interfaces
 // interfaces are not used to generate an object
+//  interface defines how an object should look
 interface exampleOfInterface {
    id: number;
    password: string;
@@ -96,4 +93,31 @@ const interface1: exampleOfInterface = {
     console.log("Something");
   },
 }
+// Generics
+const addUID = <T extends object>(obj: T) => {
+ let uid = Math.floor(Math.random () * 100);
+ return {...obj, uid};
+}
+//  Generics with interfaces
+interface resource<T> {
+  uid: number;
+  data: T; 
+}
+
+// Enums 
+enum colors { Red, Green, Blue, Purple};
+
+interface t_shirt<T extends colors> {
+  size: string;
+  color: T;
+}
+
+const user1_tShirt: t_shirt<colors> = {
+ size: "M",
+ color: colors.Blue,
+}
+
+// Tuples
+let tup: [string, number, boolean];
+tup = ["hi", 10, true];
 
